@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let s = '([{}])';
+        function mytry(s) {
+            s = s.split('');
+            let map = new Map([[')', '('], [']', '['], ['}', '{']]);
+            console.log(map);
+            let strarr = [];
+            for (let str of s) {
+                if (map.has(str)) {
+                    if (strarr[strarr.length - 1] !== map.get(str)) return false;
+                    else strarr.pop();
+                } else {
+                    strarr.push(str);
+                }
+            }
+            return console.log(!strarr.length)
+        }
+        mytry(s);
+    </script>
+</body>
+
+</html>
