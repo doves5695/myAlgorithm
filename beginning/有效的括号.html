@@ -12,15 +12,19 @@
         let s = '([{}])';
         function mytry(s) {
             s = s.split('');
+            console.log(s);
             let map = new Map([[')', '('], [']', '['], ['}', '{']]);
             console.log(map);
             let strarr = [];
             for (let str of s) {
+                console.log(str, 'str')
                 if (map.has(str)) {
-                    if (strarr[strarr.length - 1] !== map.get(str)) return false;
+                    if (strarr[strarr.length - 1] !== map.get(str)) return console.log(false);
                     else strarr.pop();
+                    console.log(strarr, 'popStrarr')
                 } else {
                     strarr.push(str);
+                    console.log(strarr, 'strarr')
                 }
             }
             return console.log(!strarr.length)
